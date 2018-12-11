@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6144870688F5CC77EC277A32 /* Pods_LevelScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0FBC60031EFF2B7801B2C5 /* Pods_LevelScheduler.framework */; };
+		CEB7D68B21C00FCA00FFA245 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7D68A21C00FCA00FFA245 /* R.generated.swift */; };
 		CEFB712121BFE1EB00D0030D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB712021BFE1EB00D0030D /* AppDelegate.swift */; };
-		CEFB712321BFE1EB00D0030D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB712221BFE1EB00D0030D /* ViewController.swift */; };
-		CEFB712621BFE1EB00D0030D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFB712421BFE1EB00D0030D /* Main.storyboard */; };
+		CEFB712321BFE1EB00D0030D /* StartSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB712221BFE1EB00D0030D /* StartSettingViewController.swift */; };
+		CEFB712621BFE1EB00D0030D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFB712421BFE1EB00D0030D /* Start.storyboard */; };
 		CEFB712821BFE1EB00D0030D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFB712721BFE1EB00D0030D /* Assets.xcassets */; };
 		CEFB712B21BFE1EB00D0030D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFB712921BFE1EB00D0030D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55340A2785CEFA7FF2ACBCDB /* Pods-LevelScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler.debug.xcconfig"; sourceTree = "<group>"; };
+		7D60CD2A2B1437A923FA5CE4 /* Pods-LevelScheduler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelScheduler.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler.release.xcconfig"; sourceTree = "<group>"; };
+		9E0FBC60031EFF2B7801B2C5 /* Pods_LevelScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB7D68A21C00FCA00FFA245 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		CEFB711D21BFE1EB00D0030D /* LevelScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFB712021BFE1EB00D0030D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEFB712221BFE1EB00D0030D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEFB712521BFE1EB00D0030D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEFB712221BFE1EB00D0030D /* StartSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSettingViewController.swift; sourceTree = "<group>"; };
+		CEFB712521BFE1EB00D0030D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		CEFB712721BFE1EB00D0030D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFB712A21BFE1EB00D0030D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEFB712C21BFE1EB00D0030D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6144870688F5CC77EC277A32 /* Pods_LevelScheduler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5266A76F0ABF9D0AE9FDCE3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FBC60031EFF2B7801B2C5 /* Pods_LevelScheduler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEB7D67F21BFED2600FFA245 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				CEFB712221BFE1EB00D0030D /* StartSettingViewController.swift */,
+				CEFB712421BFE1EB00D0030D /* Start.storyboard */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
 		CEFB711421BFE1EA00D0030D = {
 			isa = PBXGroup;
 			children = (
 				CEFB711F21BFE1EB00D0030D /* LevelScheduler */,
 				CEFB711E21BFE1EB00D0030D /* Products */,
+				E458C4586964C7AC006CE6B3 /* Pods */,
+				5266A76F0ABF9D0AE9FDCE3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +80,23 @@
 		CEFB711F21BFE1EB00D0030D /* LevelScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				CEB7D67F21BFED2600FFA245 /* Start */,
 				CEFB712021BFE1EB00D0030D /* AppDelegate.swift */,
-				CEFB712221BFE1EB00D0030D /* ViewController.swift */,
-				CEFB712421BFE1EB00D0030D /* Main.storyboard */,
 				CEFB712721BFE1EB00D0030D /* Assets.xcassets */,
 				CEFB712921BFE1EB00D0030D /* LaunchScreen.storyboard */,
+				CEB7D68A21C00FCA00FFA245 /* R.generated.swift */,
 				CEFB712C21BFE1EB00D0030D /* Info.plist */,
 			);
 			path = LevelScheduler;
+			sourceTree = "<group>";
+		};
+		E458C4586964C7AC006CE6B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55340A2785CEFA7FF2ACBCDB /* Pods-LevelScheduler.debug.xcconfig */,
+				7D60CD2A2B1437A923FA5CE4 /* Pods-LevelScheduler.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEFB712F21BFE1EB00D0030D /* Build configuration list for PBXNativeTarget "LevelScheduler" */;
 			buildPhases = (
+				3D5A9267194EFD0CF7834DCF /* [CP] Check Pods Manifest.lock */,
+				CEB7D68721C00D3B00FFA245 /* ShellScript */,
 				CEFB711921BFE1EB00D0030D /* Sources */,
 				CEFB711A21BFE1EB00D0030D /* Frameworks */,
 				CEFB711B21BFE1EB00D0030D /* Resources */,
+				19153689ADF8B5D0931D222B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,31 +162,104 @@
 			files = (
 				CEFB712B21BFE1EB00D0030D /* LaunchScreen.storyboard in Resources */,
 				CEFB712821BFE1EB00D0030D /* Assets.xcassets in Resources */,
-				CEFB712621BFE1EB00D0030D /* Main.storyboard in Resources */,
+				CEFB712621BFE1EB00D0030D /* Start.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19153689ADF8B5D0931D222B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/KDDragAndDropCollectionViews/KDDragAndDropCollectionViews.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDDragAndDropCollectionViews.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D5A9267194EFD0CF7834DCF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LevelScheduler-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEB7D68721C00D3B00FFA245 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CEFB711921BFE1EB00D0030D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFB712321BFE1EB00D0030D /* ViewController.swift in Sources */,
+				CEFB712321BFE1EB00D0030D /* StartSettingViewController.swift in Sources */,
 				CEFB712121BFE1EB00D0030D /* AppDelegate.swift in Sources */,
+				CEB7D68B21C00FCA00FFA245 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEFB712421BFE1EB00D0030D /* Main.storyboard */ = {
+		CEFB712421BFE1EB00D0030D /* Start.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEFB712521BFE1EB00D0030D /* Base */,
 			);
-			name = Main.storyboard;
+			name = Start.storyboard;
 			sourceTree = "<group>";
 		};
 		CEFB712921BFE1EB00D0030D /* LaunchScreen.storyboard */ = {
@@ -280,6 +391,7 @@
 		};
 		CEFB713021BFE1EB00D0030D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55340A2785CEFA7FF2ACBCDB /* Pods-LevelScheduler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +409,7 @@
 		};
 		CEFB713121BFE1EB00D0030D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D60CD2A2B1437A923FA5CE4 /* Pods-LevelScheduler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

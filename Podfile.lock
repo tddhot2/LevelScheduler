@@ -1,0 +1,58 @@
+PODS:
+  - APIKit (3.2.1):
+    - Result (~> 3.0)
+  - KDDragAndDropCollectionViews (1.5.1)
+  - PromiseKit (6.7.0):
+    - PromiseKit/CorePromise (= 6.7.0)
+    - PromiseKit/Foundation (= 6.7.0)
+    - PromiseKit/UIKit (= 6.7.0)
+  - PromiseKit/CorePromise (6.7.0)
+  - PromiseKit/Foundation (6.7.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.7.0):
+    - PromiseKit/CorePromise
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
+  - Result (3.2.4)
+  - SkyFloatingLabelTextField (3.6.0)
+
+DEPENDENCIES:
+  - APIKit (~> 3.1)
+  - KDDragAndDropCollectionViews (~> 1.5.1)
+  - PromiseKit (~> 6.0)
+  - R.swift
+  - RealmSwift
+  - SkyFloatingLabelTextField (~> 3.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - APIKit
+    - KDDragAndDropCollectionViews
+    - PromiseKit
+    - R.swift
+    - R.swift.Library
+    - Realm
+    - RealmSwift
+    - Result
+    - SkyFloatingLabelTextField
+
+SPEC CHECKSUMS:
+  APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
+  KDDragAndDropCollectionViews: 96ffdc53d3e06d359110485f04c16cdfd7b13e4b
+  PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
+
+PODFILE CHECKSUM: ee3891901cc79e2e0014e6edd5911186bc9929d7
+
+COCOAPODS: 1.5.0

@@ -1,0 +1,6 @@
+framework module Pods_LevelScheduler {
+  umbrella header "Pods-LevelScheduler-umbrella.h"
+
+  export *
+  module * { export * }
+}

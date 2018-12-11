@@ -82,7 +82,7 @@
                                 <rect key="frame" x="20" y="263.5" width="335" height="353.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulerTableCell" id="cp0-P6-hMb" customClass="SchedulerTableViewCell" customModule="LevelScheduler" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulerTableCell" id="cp0-P6-hMb" customClass="SchedulerTableViewCell" customModule="LevelScheduler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="335" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cp0-P6-hMb" id="Ky5-CN-7Cl">

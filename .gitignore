@@ -2,3 +2,4 @@
 Info.plist
 Pods/
 *.lock
+xcuserdata/

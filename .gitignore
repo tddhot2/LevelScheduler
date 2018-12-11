@@ -1,0 +1,4 @@
+# .gitignore
+Info.plist
+Pods/
+*.lock

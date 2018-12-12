@@ -34,14 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작하세요! 아래 스케줄러 개수와 각 스케줄러의 타이틀 및 색상을 지정해주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-GV-R97" userLabel="Guide Label">
-                                <rect key="frame" x="20" y="50" width="335" height="143.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작하세요! 레벨 개수 및 레벨 별 타이틀과 색상을 정해주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-GV-R97" userLabel="Guide Label">
+                                <rect key="frame" x="20" y="50" width="335" height="107.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLh-xU-3i5" userLabel="Scheduler Number View">
-                                <rect key="frame" x="0.0" y="213.5" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="177.5" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beM-MZ-9fJ" userLabel="Down Button">
                                         <rect key="frame" x="118.5" y="10" width="39" height="30"/>
@@ -78,8 +78,8 @@
                                     <constraint firstItem="scf-iH-2Ja" firstAttribute="centerY" secondItem="YLh-xU-3i5" secondAttribute="centerY" id="wV7-4Z-hFI"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-mb-9nv" userLabel="Scheduler Setting Table View">
-                                <rect key="frame" x="20" y="263.5" width="335" height="353.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-mb-9nv" userLabel="Scheduler Setting Table View">
+                                <rect key="frame" x="20" y="227.5" width="335" height="389.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulerTableCell" id="cp0-P6-hMb" customClass="SchedulerTableViewCell" customModule="LevelScheduler" customModuleProvider="target">
@@ -90,7 +90,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWl-hr-ZSg" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                    <rect key="frame" x="0.0" y="10" width="335" height="39"/>
+                                                    <rect key="frame" x="0.0" y="10" width="335" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -116,7 +116,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpS-BD-zAg" userLabel="Color Select Collection View">
-                                                    <rect key="frame" x="0.0" y="54" width="335" height="36"/>
+                                                    <rect key="frame" x="0.0" y="45" width="335" height="45"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jdi-I2-lLC">
                                                         <size key="itemSize" width="30" height="30"/>
@@ -126,7 +126,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="MjP-Fo-uX0" customClass="ColorCollectionViewCell" customModule="LevelScheduler" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="3" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="7.5" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -199,6 +199,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YLh-xU-3i5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3xN-UY-bBk"/>
                             <constraint firstItem="MRp-4b-pea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4VQ-0G-rqG"/>
@@ -219,13 +220,22 @@
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sQW-uC-zsa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pEC-Jk-THg" appends="YES" id="ir6-YH-BYJ"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="dismissTapGestureRecognizer" destination="pEC-Jk-THg" id="POw-5v-OX5"/>
                         <outlet property="numberLabel" destination="scf-iH-2Ja" id="orb-kM-rFm"/>
                         <outlet property="settingTableView" destination="rwW-mb-9nv" id="yuf-Nq-lYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pEC-Jk-THg" userLabel="Dismiss Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="didDismissTapped:" destination="BYZ-38-t0r" id="6Ms-Hc-kfs"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-484" y="8"/>
         </scene>

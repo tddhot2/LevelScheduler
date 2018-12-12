@@ -17,15 +17,16 @@ class StartSettingViewController: UIViewController {
     // Outlet variables
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var settingTableView: UITableView!
+    @IBOutlet private var dismissTapGestureRecognizer: UITapGestureRecognizer!
     
     // private variables
     private var schedulerNumber: Int = DEFAULT_SCHEDULER_NUMBER {
         didSet {
-            UIView.animate(withDuration: 0.5) { [weak self] in
+            UIView.animate(withDuration: 0.2) { [weak self] in
                 guard let `self` = self else { return }
                 self.numberLabel.alpha = 0.0
                 self.numberLabel.text = "\(self.schedulerNumber)"
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: 0.2) {
                     self.numberLabel.alpha = 1.0
                 }
             }
@@ -33,20 +34,38 @@ class StartSettingViewController: UIViewController {
             settingTableView.reloadData()
         }
     }
+    private lazy var __once: () = {
+        schedulerNumber = DEFAULT_SCHEDULER_NUMBER
+        dismissTapGestureRecognizer.isEnabled = false
+        
+        let center = NotificationCenter.default
+        let notiArr: [Notification.Name : Selector] = [
+            UIResponder.keyboardDidShowNotification:#selector(didKeyboardWillShow(_:)),
+            UIResponder.keyboardDidHideNotification:#selector(didKeyboardWillHide(_:)),
+        ]
+        notiArr.forEach { (noti, selector) in
+            center.addObserver(self, selector: selector, name: noti, object: nil)
+        }
+    }()
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     // public variables
     var selectedColorIndexArray: [Int] = [0]
     var schedulerCellArray: [SchedulerTableViewCell] = []
-    
-    private lazy var __once: () = {
-       schedulerNumber = DEFAULT_SCHEDULER_NUMBER
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = __once
     }
     
+    private func moveSettingTableViewContentOffset(_ y: CGFloat = 0) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.settingTableView.contentOffset = CGPoint(x: 0, y: y)
+            self.settingTableView.layoutIfNeeded()
+        })
+    }
 }
 
 // MARK: Selector
@@ -75,6 +94,24 @@ extension StartSettingViewController {
         selectedColorIndexArray.forEach {
             print(COLOR_ARRAY[$0])
         }
+    }
+    
+    @IBAction func didDismissTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func didKeyboardWillShow(_ notification: Notification) {
+        dismissTapGestureRecognizer.isEnabled = true
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let y = (UIScreen.main.bounds.height - keyboardFrame.cgRectValue.height) - (view.convert(settingTableView.frame, from: view).minY + settingTableView.contentSize.height)
+            moveSettingTableViewContentOffset((y > 0 ? 0 : -y))
+        }
+        
+    }
+    
+    @objc func didKeyboardWillHide(_ notification: Notification) {
+        dismissTapGestureRecognizer.isEnabled = false
+        moveSettingTableViewContentOffset()
     }
 }
 
@@ -119,6 +156,7 @@ class SchedulerTableViewCell: UITableViewCell {
         titleTextField.placeholder = "\(row) 번째 타이틀 입력해주세요"
         titleTextField.title = "\(row) 번째 타이틀"
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        titleTextField.delegate = self
     }
     
     func getTitle() -> String {
@@ -140,14 +178,30 @@ class SchedulerTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: SchedulerTableViewCell - UITextFieldDelegate
+extension SchedulerTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return true
+    }
+}
+
+// MARK: ColorCollectionViewCell
 class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var colorView: UIView!
-    private var selectedColorIndex = 0
+    
+    override func prepareForReuse() {
+        colorView.alpha = 0.2
+    }
     
     func drawCell(cellIndex: Int, selectedIndex: Int, vc: StartSettingViewController) {
         colorView.backgroundColor = COLOR_ARRAY[cellIndex]
         colorView.layer.cornerRadius = 15
-        colorView.alpha = (cellIndex == selectedIndex ? 1.0 : 0.2)
+        
+        let withDuration = (cellIndex == selectedIndex ? 0.2 : 0.0)
+        UIView.animate(withDuration: withDuration) { [weak self] in
+            self?.colorView.alpha = (cellIndex == selectedIndex ? 1.0 : 0.2)
+        }
     }
     
 }

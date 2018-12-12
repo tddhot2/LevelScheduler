@@ -135,6 +135,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fpd-Wc-icp" userLabel="Color View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <gestureRecognizers/>
                                                                     </view>
                                                                 </subviews>
                                                             </view>
@@ -177,21 +178,44 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="1ur-Nb-eP0"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MRp-4b-pea">
+                                <rect key="frame" x="20" y="622" width="335" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ann-fd-Jzf" userLabel="Reset Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="40"/>
+                                        <state key="normal" title="초기화"/>
+                                        <connections>
+                                            <action selector="didResetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ws-2j-SWn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-fz-e82" userLabel="Ok Button">
+                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="40"/>
+                                        <state key="normal" title="완료"/>
+                                        <connections>
+                                            <action selector="didOkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cjd-gn-bMP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YLh-xU-3i5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3xN-UY-bBk"/>
+                            <constraint firstItem="MRp-4b-pea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4VQ-0G-rqG"/>
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="6Yj-ND-ul4"/>
                             <constraint firstItem="HM4-GV-R97" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6w4-Bh-52j"/>
                             <constraint firstItem="HM4-GV-R97" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="CR9-gF-eIL"/>
+                            <constraint firstItem="MRp-4b-pea" firstAttribute="top" secondItem="rwW-mb-9nv" secondAttribute="bottom" constant="5" id="Jzq-fv-owo"/>
                             <constraint firstItem="YLh-xU-3i5" firstAttribute="top" secondItem="HM4-GV-R97" secondAttribute="bottom" constant="20" id="VGZ-sj-0hb"/>
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="top" secondItem="YLh-xU-3i5" secondAttribute="bottom" id="aYs-AN-l4U"/>
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aol-xw-Kni"/>
                             <constraint firstItem="HM4-GV-R97" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cyI-00-Sjz"/>
                             <constraint firstItem="YLh-xU-3i5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fHL-TZ-a8q"/>
                             <constraint firstItem="HM4-GV-R97" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="iq0-mL-ePh"/>
+                            <constraint firstItem="MRp-4b-pea" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-5" id="jjr-DN-j3q"/>
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-50" id="pjT-yK-QC0"/>
                             <constraint firstItem="YLh-xU-3i5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qH6-kA-nCK"/>
+                            <constraint firstItem="MRp-4b-pea" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="qNb-50-TDC"/>
                             <constraint firstItem="rwW-mb-9nv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sQW-uC-zsa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

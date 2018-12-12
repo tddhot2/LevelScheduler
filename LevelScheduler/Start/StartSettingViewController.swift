@@ -10,8 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
-private let COLOR_COLLECTION_NUMBER: Int = 10
-private let COLOR_ARRAY: [UIColor] = [.red, .black, .blue, .gray, .brown, .yellow, .purple, .cyan, .magenta, .green]
+private let COLOR_ARRAY: [UIColor] = [.red, .orange, .yellow, .green, .blue, .gray, .purple, .magenta]
 
 class StartSettingViewController: UIViewController {
     
@@ -30,9 +29,14 @@ class StartSettingViewController: UIViewController {
                     self.numberLabel.alpha = 1.0
                 }
             }
+            schedulerCellArray.removeAll()
             settingTableView.reloadData()
         }
     }
+    
+    // public variables
+    var selectedColorIndexArray: [Int] = [0]
+    var schedulerCellArray: [SchedulerTableViewCell] = []
     
     private lazy var __once: () = {
        schedulerNumber = DEFAULT_SCHEDULER_NUMBER
@@ -42,6 +46,7 @@ class StartSettingViewController: UIViewController {
         super.viewDidLoad()
         _ = __once
     }
+    
 }
 
 // MARK: Selector
@@ -49,10 +54,27 @@ extension StartSettingViewController {
     @IBAction func didDownButtonTapped(_ sender: UIButton) {
         guard schedulerNumber - 1 > 0 else { return }
         schedulerNumber -= 1
+        selectedColorIndexArray.removeLast()
     }
     
     @IBAction func didUpButtonTapped(_ sender: UIButton) {
         schedulerNumber += 1
+        selectedColorIndexArray.append(0)
+    }
+    
+    @IBAction func didResetButtonTapped(_ sender: UIButton) {
+        schedulerNumber = DEFAULT_SCHEDULER_NUMBER
+        selectedColorIndexArray.removeAll()
+        selectedColorIndexArray.append(0)
+    }
+    
+    @IBAction func didOkButtonTapped(_ sender: UIButton) {
+        schedulerCellArray.forEach {
+            print($0.getTitle())
+        }
+        selectedColorIndexArray.forEach {
+            print(COLOR_ARRAY[$0])
+        }
     }
 }
 
@@ -65,6 +87,7 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.schedulerTableCell.identifier) as! SchedulerTableViewCell
         cell.drawCell(indexPath.row + 1)
+        schedulerCellArray.append(cell)
         return cell
     }
 }
@@ -72,16 +95,19 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
 // MARK: Color Collection View Delegate
 extension StartSettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return COLOR_COLLECTION_NUMBER
+        return COLOR_ARRAY.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.colorCollectionViewCell.identifier, for: indexPath) as? ColorCollectionViewCell else { return UICollectionViewCell() }
-        cell.drawCell(COLOR_ARRAY[indexPath.row])
+        cell.drawCell(cellIndex: indexPath.row, selectedIndex: selectedColorIndexArray[indexPath.section], vc: self)
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedColorIndexArray[indexPath.section] = indexPath.row
+        collectionView.reloadData()
+    }
 }
 
 // MARK: SchedulerTableViewCell
@@ -93,6 +119,10 @@ class SchedulerTableViewCell: UITableViewCell {
         titleTextField.placeholder = "\(row) 번째 타이틀 입력해주세요"
         titleTextField.title = "\(row) 번째 타이틀"
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    func getTitle() -> String {
+        return titleTextField.text ?? ""
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -112,9 +142,12 @@ class SchedulerTableViewCell: UITableViewCell {
 
 class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var colorView: UIView!
+    private var selectedColorIndex = 0
     
-    func drawCell(_ color: UIColor) {
-        colorView.backgroundColor = color
+    func drawCell(cellIndex: Int, selectedIndex: Int, vc: StartSettingViewController) {
+        colorView.backgroundColor = COLOR_ARRAY[cellIndex]
         colorView.layer.cornerRadius = 15
+        colorView.alpha = (cellIndex == selectedIndex ? 1.0 : 0.2)
     }
+    
 }

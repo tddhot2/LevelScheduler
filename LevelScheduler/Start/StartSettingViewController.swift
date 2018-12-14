@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import EMEmojiableBtn
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
 private let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
@@ -132,44 +133,47 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.schedulerTableCell.identifier) as! SchedulerTableViewCell
-        cell.drawCell(indexPath.row + 1)
+        cell.drawCell(indexPath.row + 1, vc: self)
         schedulerCellArray.append(cell)
         return cell
-    }
-}
-
-// MARK: Color Collection View Delegate
-extension StartSettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return COLOR_ARRAY.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.colorCollectionViewCell.identifier, for: indexPath) as? ColorCollectionViewCell else { return UICollectionViewCell() }
-        cell.drawCell(cellIndex: indexPath.row, selectedIndex: selectedColorIndexArray[indexPath.section], vc: self)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedColorIndexArray[indexPath.section] = indexPath.row
-        collectionView.reloadData()
     }
 }
 
 // MARK: SchedulerTableViewCell
 class SchedulerTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleTextField: SkyFloatingLabelTextField!
-    @IBOutlet private weak var colorCollectionView: UICollectionView!
+    @IBOutlet private weak var colorButton: EMEmojiableBtn!
     
-    func drawCell(_ row: Int) {
+    private var circleViews: [UIView] {
+        var circleViews: [UIView] = []
+        COLOR_ARRAY.forEach {
+            let circleView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            circleView.layer.cornerRadius = circleView.bounds.width / 2
+            circleView.backgroundColor = UIColor(hexcode: $0)
+            circleViews.append(circleView)
+        }
+        return circleViews
+    }
+    
+    func drawCell(_ row: Int, vc: StartSettingViewController) {
         titleTextField.placeholder = "\(row) 번째 타이틀 입력해주세요"
         titleTextField.title = "\(row) 번째 타이틀"
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         titleTextField.delegate = self
+        
+        colorButton.layer.cornerRadius = colorButton.bounds.width / 2
+        colorButton.backgroundColor = UIColor(hexcode: COLOR_ARRAY[0])
+        setEMEMojiButtonResources(vc: vc)
     }
     
     func getTitle() -> String {
         return titleTextField.text ?? ""
+    }
+    
+    private func setEMEMojiButtonResources(vc: StartSettingViewController) {
+        colorButton.delegate = vc
+        colorButton.dataset = circleViews
+        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -184,6 +188,21 @@ class SchedulerTableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+}
+
+// MARK: SchedulerTableViewCell - EMEmojiableBtnDelegate
+extension StartSettingViewController: EMEmojiableBtnDelegate {
+    func emEmojiableBtnSingleTap(_ button: EMEmojiableBtn) {
+        print("Single Tap")
+    }
+    
+    func emEmojiableBtnCanceledAction(_ button: EMEmojiableBtn) {
+        print("Cancle tap")
+    }
+    
+    func emEmojiableBtn(_ button: EMEmojiableBtn, selectedOption index: UInt) {
+        print("emEmojiableBtn tap")
     }
 }
 

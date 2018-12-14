@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6144870688F5CC77EC277A32 /* Pods_LevelScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0FBC60031EFF2B7801B2C5 /* Pods_LevelScheduler.framework */; };
-		CEB7D68B21C00FCA00FFA245 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7D68A21C00FCA00FFA245 /* R.generated.swift */; };
+		CECF67A121C37472004C3DB7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF67A021C37472004C3DB7 /* R.generated.swift */; };
 		CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */; };
 		CED7BF7621C0BD2100C3CA6B /* SchedulerTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */; };
 		CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */; };
@@ -24,7 +24,7 @@
 		55340A2785CEFA7FF2ACBCDB /* Pods-LevelScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler.debug.xcconfig"; sourceTree = "<group>"; };
 		7D60CD2A2B1437A923FA5CE4 /* Pods-LevelScheduler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelScheduler.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler.release.xcconfig"; sourceTree = "<group>"; };
 		9E0FBC60031EFF2B7801B2C5 /* Pods_LevelScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB7D68A21C00FCA00FFA245 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		CECF67A021C37472004C3DB7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelamManager.swift; sourceTree = "<group>"; };
 		CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTableModel.swift; sourceTree = "<group>"; };
 		CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachSchedulerCardModel.swift; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 				CEB7D67F21BFED2600FFA245 /* Start */,
 				CEFB712021BFE1EB00D0030D /* AppDelegate.swift */,
 				CEFB712721BFE1EB00D0030D /* Assets.xcassets */,
+				CECF67A021C37472004C3DB7 /* R.generated.swift */,
 				CEFB712921BFE1EB00D0030D /* LaunchScreen.storyboard */,
-				CEB7D68A21C00FCA00FFA245 /* R.generated.swift */,
 				CEFB712C21BFE1EB00D0030D /* Info.plist */,
 			);
 			path = LevelScheduler;
@@ -143,7 +143,7 @@
 			buildConfigurationList = CEFB712F21BFE1EB00D0030D /* Build configuration list for PBXNativeTarget "LevelScheduler" */;
 			buildPhases = (
 				3D5A9267194EFD0CF7834DCF /* [CP] Check Pods Manifest.lock */,
-				CEB7D68721C00D3B00FFA245 /* ShellScript */,
+				CECF679F21C37304004C3DB7 /* R.Swift */,
 				CEFB711921BFE1EB00D0030D /* Sources */,
 				CEFB711A21BFE1EB00D0030D /* Frameworks */,
 				CEFB711B21BFE1EB00D0030D /* Resources */,
@@ -213,6 +213,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LevelScheduler/Pods-LevelScheduler-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/EMEmojiableBtn/EMEmojiableBtn.framework",
 				"${BUILT_PRODUCTS_DIR}/KDDragAndDropCollectionViews/KDDragAndDropCollectionViews.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -224,6 +225,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EMEmojiableBtn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDDragAndDropCollectionViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -255,7 +257,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CEB7D68721C00D3B00FFA245 /* ShellScript */ = {
+		CECF679F21C37304004C3DB7 /* R.Swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,6 +267,7 @@
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
 			);
+			name = R.Swift;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -272,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"generate\" \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -282,11 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED7BF7B21C1023800C3CA6B /* UIColor+Extension.swift in Sources */,
+				CECF67A121C37472004C3DB7 /* R.generated.swift in Sources */,
 				CEFB712321BFE1EB00D0030D /* StartSettingViewController.swift in Sources */,
 				CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */,
 				CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */,
 				CEFB712121BFE1EB00D0030D /* AppDelegate.swift in Sources */,
-				CEB7D68B21C00FCA00FFA245 /* R.generated.swift in Sources */,
 				CED7BF7621C0BD2100C3CA6B /* SchedulerTableModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

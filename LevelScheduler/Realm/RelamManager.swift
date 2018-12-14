@@ -21,5 +21,9 @@ class RealmManager {
         Realm.Configuration.defaultConfiguration = config
     }
     
-    
+    func write(_ object: Object) {
+        try? relam.write {
+            relam.add(object)
+        }
+    }
 }

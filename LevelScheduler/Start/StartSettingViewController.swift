@@ -10,7 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
-private let COLOR_ARRAY: [UIColor] = [.red, .orange, .yellow, .green, .blue, .gray, .purple, .magenta]
+private let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
 
 class StartSettingViewController: UIViewController {
     
@@ -88,11 +88,20 @@ extension StartSettingViewController {
     }
     
     @IBAction func didOkButtonTapped(_ sender: UIButton) {
-        schedulerCellArray.forEach {
-            print($0.getTitle())
+        let titleArr = schedulerCellArray.compactMap { return $0.getTitle() }.sorted()
+        for i in 0..<titleArr.count - 1 {
+            if titleArr[i] == titleArr[i+1] {
+                return
+            }
         }
-        selectedColorIndexArray.forEach {
-            print(COLOR_ARRAY[$0])
+        RealmManager.shared.setRealmFileByTableName("Scheduler")
+        for i in titleArr.enumerated() {
+            let object = SchedulerTableModel()
+            object.schedulerId = i.offset
+            object.title = i.element
+            object.color = COLOR_ARRAY[i.offset]
+            object.cardList = nil
+            RealmManager.shared.write(object)
         }
     }
     
@@ -195,7 +204,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     }
     
     func drawCell(cellIndex: Int, selectedIndex: Int, vc: StartSettingViewController) {
-        colorView.backgroundColor = COLOR_ARRAY[cellIndex]
+        colorView.backgroundColor = UIColor(hexcode: COLOR_ARRAY[cellIndex])
         colorView.layer.cornerRadius = 15
         
         let withDuration = (cellIndex == selectedIndex ? 0.2 : 0.0)

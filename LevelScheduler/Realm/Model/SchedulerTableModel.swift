@@ -12,8 +12,8 @@ import RealmSwift
 class SchedulerTableModel: Object {
     @objc dynamic var schedulerId: Int = 0
     @objc dynamic var title: String = ""
-    @objc dynamic var color: UIColor = UIColor.clear
-    let cardList = List<EachSchedulerCardModel>()
+    @objc dynamic var color: String = ""
+    var cardList: List<EachSchedulerCardModel>? = nil
     
     override static func primaryKey() -> String? {
         return "schedulerId"

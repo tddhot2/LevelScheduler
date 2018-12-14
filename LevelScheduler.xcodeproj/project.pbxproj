@@ -12,6 +12,7 @@
 		CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */; };
 		CED7BF7621C0BD2100C3CA6B /* SchedulerTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */; };
 		CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */; };
+		CED7BF7B21C1023800C3CA6B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7A21C1023800C3CA6B /* UIColor+Extension.swift */; };
 		CEFB712121BFE1EB00D0030D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB712021BFE1EB00D0030D /* AppDelegate.swift */; };
 		CEFB712321BFE1EB00D0030D /* StartSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB712221BFE1EB00D0030D /* StartSettingViewController.swift */; };
 		CEFB712621BFE1EB00D0030D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFB712421BFE1EB00D0030D /* Start.storyboard */; };
@@ -27,6 +28,7 @@
 		CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelamManager.swift; sourceTree = "<group>"; };
 		CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTableModel.swift; sourceTree = "<group>"; };
 		CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachSchedulerCardModel.swift; sourceTree = "<group>"; };
+		CED7BF7A21C1023800C3CA6B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CEFB711D21BFE1EB00D0030D /* LevelScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFB712021BFE1EB00D0030D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFB712221BFE1EB00D0030D /* StartSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSettingViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CED7BF7921C1022700C3CA6B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CED7BF7A21C1023800C3CA6B /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CEFB711421BFE1EA00D0030D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		CEFB711F21BFE1EB00D0030D /* LevelScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				CED7BF7921C1022700C3CA6B /* Extension */,
 				CED7BF7121C0BB1800C3CA6B /* Realm */,
 				CEB7D67F21BFED2600FFA245 /* Start */,
 				CEFB712021BFE1EB00D0030D /* AppDelegate.swift */,
@@ -270,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED7BF7B21C1023800C3CA6B /* UIColor+Extension.swift in Sources */,
 				CEFB712321BFE1EB00D0030D /* StartSettingViewController.swift in Sources */,
 				CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */,
 				CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */,

@@ -1,7 +1,7 @@
 PODS:
   - APIKit (3.2.1):
     - Result (~> 3.0)
-  - EMEmojiableBtn (0.1.1)
+  - JOEmojiableBtn (3.0.1)
   - KDDragAndDropCollectionViews (1.5.1)
   - PromiseKit (6.7.0):
     - PromiseKit/CorePromise (= 6.7.0)
@@ -25,7 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - APIKit (~> 3.1)
-  - EMEmojiableBtn
+  - JOEmojiableBtn
   - KDDragAndDropCollectionViews (~> 1.5.1)
   - PromiseKit (~> 6.0)
   - R.swift
@@ -35,7 +35,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - APIKit
-    - EMEmojiableBtn
+    - JOEmojiableBtn
     - KDDragAndDropCollectionViews
     - PromiseKit
     - R.swift
@@ -47,7 +47,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
-  EMEmojiableBtn: 6115679127b6e5aebe642e4bba00aff3eee2ddef
+  JOEmojiableBtn: a5a2abad9b7a5312d68ed6670d9a9aead208bee0
   KDDragAndDropCollectionViews: 96ffdc53d3e06d359110485f04c16cdfd7b13e4b
   PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -57,6 +57,6 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: ad804b8935937294fecbc59f592dfc831539c0f6
+PODFILE CHECKSUM: 00907f370642f209d83fa70e9fca40f657700893
 
 COCOAPODS: 1.5.0

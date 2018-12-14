@@ -8,7 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
-import EMEmojiableBtn
+import JOEmojiableBtn
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
 private let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
@@ -133,7 +133,8 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.schedulerTableCell.identifier) as! SchedulerTableViewCell
-        cell.drawCell(indexPath.row + 1, vc: self)
+
+        cell.drawCell(indexPath.row + 1)
         schedulerCellArray.append(cell)
         return cell
     }
@@ -142,7 +143,7 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
 // MARK: SchedulerTableViewCell
 class SchedulerTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleTextField: SkyFloatingLabelTextField!
-    @IBOutlet private weak var colorButton: EMEmojiableBtn!
+    @IBOutlet private weak var colorView: UIView!
     
     private var circleViews: [UIView] {
         var circleViews: [UIView] = []
@@ -155,25 +156,33 @@ class SchedulerTableViewCell: UITableViewCell {
         return circleViews
     }
     
-    func drawCell(_ row: Int, vc: StartSettingViewController) {
+    func drawCell(_ row: Int) {
         titleTextField.placeholder = "\(row) 번째 타이틀 입력해주세요"
         titleTextField.title = "\(row) 번째 타이틀"
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         titleTextField.delegate = self
         
-        colorButton.layer.cornerRadius = colorButton.bounds.width / 2
-        colorButton.backgroundColor = UIColor(hexcode: COLOR_ARRAY[0])
-        setEMEMojiButtonResources(vc: vc)
+        let config = JOEmojiableConfig(spacing: 5,
+                                       size: 30,
+                                       minSize: 34,
+                                       maxSize: 45,
+                                       spaceBetweenComponents: 30)
+        
+        let colorBtn = JOEmojiableBtn(frame: CGRect(origin: CGPoint.zero, size: colorView.bounds.size), config: config)
+        colorBtn.delegate = self
+        colorBtn.backgroundColor = .red
+        colorBtn.dataset = [.init(image: "red", name: "red"),
+                            .init(image: "sky", name: "sky"),
+                            .init(image: "gray", name: "gray"),
+                            .init(image: "green", name: "green"),
+                            .init(image: "orange", name: "orange"),
+                            .init(image: "white", name: "white"),
+                            .init(image: "purple", name: "purple")]
+        colorView.addSubview(colorBtn)
     }
     
     func getTitle() -> String {
         return titleTextField.text ?? ""
-    }
-    
-    private func setEMEMojiButtonResources(vc: StartSettingViewController) {
-        colorButton.delegate = vc
-        colorButton.dataset = circleViews
-        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -192,17 +201,13 @@ class SchedulerTableViewCell: UITableViewCell {
 }
 
 // MARK: SchedulerTableViewCell - EMEmojiableBtnDelegate
-extension StartSettingViewController: EMEmojiableBtnDelegate {
-    func emEmojiableBtnSingleTap(_ button: EMEmojiableBtn) {
-        print("Single Tap")
+extension SchedulerTableViewCell: JOEmojiableDelegate {
+    func selectedOption(_ sender: JOEmojiableBtn, index: Int) {
+        print(index)
     }
     
-    func emEmojiableBtnCanceledAction(_ button: EMEmojiableBtn) {
-        print("Cancle tap")
-    }
-    
-    func emEmojiableBtn(_ button: EMEmojiableBtn, selectedOption index: UInt) {
-        print("emEmojiableBtn tap")
+    func cancelledAction(_ sender: JOEmojiableBtn) {
+        print("cancel")
     }
 }
 

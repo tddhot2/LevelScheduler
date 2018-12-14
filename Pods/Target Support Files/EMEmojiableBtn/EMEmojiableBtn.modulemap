@@ -1,6 +1,0 @@
-framework module EMEmojiableBtn {
-  umbrella header "EMEmojiableBtn-umbrella.h"
-
-  export *
-  module * { export * }
-}

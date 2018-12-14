@@ -12,5 +12,5 @@ target 'LevelScheduler' do
   pod "PromiseKit", "~> 6.0"
   pod 'APIKit', '~> 3.1'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
-  pod "EMEmojiableBtn"
+  pod "JOEmojiableBtn"
 end

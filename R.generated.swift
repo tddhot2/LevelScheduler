@@ -21,8 +21,65 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 0 files.
+  /// This `R.file` struct is generated, and contains static references to 7 files.
   struct file {
+    /// Resource file `gray.png`.
+    static let grayPng = Rswift.FileResource(bundle: R.hostingBundle, name: "gray", pathExtension: "png")
+    /// Resource file `green.png`.
+    static let greenPng = Rswift.FileResource(bundle: R.hostingBundle, name: "green", pathExtension: "png")
+    /// Resource file `orange.png`.
+    static let orangePng = Rswift.FileResource(bundle: R.hostingBundle, name: "orange", pathExtension: "png")
+    /// Resource file `purple.png`.
+    static let purplePng = Rswift.FileResource(bundle: R.hostingBundle, name: "purple", pathExtension: "png")
+    /// Resource file `red.png`.
+    static let redPng = Rswift.FileResource(bundle: R.hostingBundle, name: "red", pathExtension: "png")
+    /// Resource file `sky.png`.
+    static let skyPng = Rswift.FileResource(bundle: R.hostingBundle, name: "sky", pathExtension: "png")
+    /// Resource file `white.png`.
+    static let whitePng = Rswift.FileResource(bundle: R.hostingBundle, name: "white", pathExtension: "png")
+    
+    /// `bundle.url(forResource: "gray", withExtension: "png")`
+    static func grayPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.grayPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "green", withExtension: "png")`
+    static func greenPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.greenPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "orange", withExtension: "png")`
+    static func orangePng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.orangePng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "purple", withExtension: "png")`
+    static func purplePng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.purplePng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "red", withExtension: "png")`
+    static func redPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.redPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "sky", withExtension: "png")`
+    static func skyPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.skyPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "white", withExtension: "png")`
+    static func whitePng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.whitePng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   
@@ -31,58 +88,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
-    /// Image `gray`.
-    static let gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "gray")
-    /// Image `green`.
-    static let green = Rswift.ImageResource(bundle: R.hostingBundle, name: "green")
-    /// Image `orange`.
-    static let orange = Rswift.ImageResource(bundle: R.hostingBundle, name: "orange")
-    /// Image `purple`.
-    static let purple = Rswift.ImageResource(bundle: R.hostingBundle, name: "purple")
-    /// Image `red`.
-    static let red = Rswift.ImageResource(bundle: R.hostingBundle, name: "red")
-    /// Image `sky`.
-    static let sky = Rswift.ImageResource(bundle: R.hostingBundle, name: "sky")
-    /// Image `white`.
-    static let white = Rswift.ImageResource(bundle: R.hostingBundle, name: "white")
-    
-    /// `UIImage(named: "gray", bundle: ..., traitCollection: ...)`
-    static func gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.gray, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "green", bundle: ..., traitCollection: ...)`
-    static func green(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.green, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "orange", bundle: ..., traitCollection: ...)`
-    static func orange(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.orange, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "purple", bundle: ..., traitCollection: ...)`
-    static func purple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.purple, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "red", bundle: ..., traitCollection: ...)`
-    static func red(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.red, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "sky", bundle: ..., traitCollection: ...)`
-    static func sky(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.sky, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "white", bundle: ..., traitCollection: ...)`
-    static func white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.white, compatibleWith: traitCollection)
-    }
-    
     fileprivate init() {}
   }
   

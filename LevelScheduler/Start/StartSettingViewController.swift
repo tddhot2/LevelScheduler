@@ -8,7 +8,6 @@
 
 import UIKit
 import SkyFloatingLabelTextField
-import JOEmojiableBtn
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
 private let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
@@ -161,24 +160,6 @@ class SchedulerTableViewCell: UITableViewCell {
         titleTextField.title = "\(row) 번째 타이틀"
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         titleTextField.delegate = self
-        
-        let config = JOEmojiableConfig(spacing: 5,
-                                       size: 30,
-                                       minSize: 34,
-                                       maxSize: 45,
-                                       spaceBetweenComponents: 30)
-        
-        let colorBtn = JOEmojiableBtn(frame: CGRect(origin: CGPoint.zero, size: colorView.bounds.size), config: config)
-        colorBtn.delegate = self
-        colorBtn.backgroundColor = .red
-        colorBtn.dataset = [.init(image: "red", name: "red"),
-                            .init(image: "sky", name: "sky"),
-                            .init(image: "gray", name: "gray"),
-                            .init(image: "green", name: "green"),
-                            .init(image: "orange", name: "orange"),
-                            .init(image: "white", name: "white"),
-                            .init(image: "purple", name: "purple")]
-        colorView.addSubview(colorBtn)
     }
     
     func getTitle() -> String {
@@ -197,17 +178,6 @@ class SchedulerTableViewCell: UITableViewCell {
                 }
             }
         }
-    }
-}
-
-// MARK: SchedulerTableViewCell - EMEmojiableBtnDelegate
-extension SchedulerTableViewCell: JOEmojiableDelegate {
-    func selectedOption(_ sender: JOEmojiableBtn, index: Int) {
-        print(index)
-    }
-    
-    func cancelledAction(_ sender: JOEmojiableBtn) {
-        print("cancel")
     }
 }
 

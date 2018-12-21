@@ -10,7 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 private let DEFAULT_SCHEDULER_NUMBER: Int = 1
-private let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
+public let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321421", "9922ee"]
 
 class StartSettingViewController: UIViewController {
     
@@ -139,45 +139,16 @@ extension StartSettingViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-// MARK: SchedulerTableViewCell
-class SchedulerTableViewCell: UITableViewCell {
-    @IBOutlet private weak var titleTextField: SkyFloatingLabelTextField!
-    @IBOutlet private weak var colorView: UIView!
-    
-    private var circleViews: [UIView] {
-        var circleViews: [UIView] = []
-        COLOR_ARRAY.forEach {
-            let circleView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-            circleView.layer.cornerRadius = circleView.bounds.width / 2
-            circleView.backgroundColor = UIColor(hexcode: $0)
-            circleViews.append(circleView)
-        }
-        return circleViews
+// MARK: Color Collection View Delegate
+extension StartSettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return COLOR_ARRAY.count
     }
     
-    func drawCell(_ row: Int) {
-        titleTextField.placeholder = "\(row) 번째 타이틀 입력해주세요"
-        titleTextField.title = "\(row) 번째 타이틀"
-        titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        titleTextField.delegate = self
-    }
-    
-    func getTitle() -> String {
-        return titleTextField.text ?? ""
-    }
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if let text = textField.text {
-            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if text.count < 1 {
-                    floatingLabelTextField.errorMessage = "최소 한 글자 이상 입력해야 합니다."
-                }
-                else {
-                    // The error message will only disappear when we reset it to nil or empty string
-                    floatingLabelTextField.errorMessage = ""
-                }
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.colorCollectionViewCell, for: indexPath) as! ColorCollectionViewCell
+        cell.drawCell(cellIndex: indexPath.row, selectedIndex: selectedColorIndexArray[indexPath.row], vc: self)
+        return cell
     }
 }
 
@@ -187,24 +158,4 @@ extension SchedulerTableViewCell: UITextFieldDelegate {
         self.endEditing(true)
         return true
     }
-}
-
-// MARK: ColorCollectionViewCell
-class ColorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var colorView: UIView!
-    
-    override func prepareForReuse() {
-        colorView.alpha = 0.2
-    }
-    
-    func drawCell(cellIndex: Int, selectedIndex: Int, vc: StartSettingViewController) {
-        colorView.backgroundColor = UIColor(hexcode: COLOR_ARRAY[cellIndex])
-        colorView.layer.cornerRadius = 15
-        
-        let withDuration = (cellIndex == selectedIndex ? 0.2 : 0.0)
-        UIView.animate(withDuration: withDuration) { [weak self] in
-            self?.colorView.alpha = (cellIndex == selectedIndex ? 1.0 : 0.2)
-        }
-    }
-    
 }

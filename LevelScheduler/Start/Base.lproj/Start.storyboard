@@ -85,20 +85,12 @@
                                     <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulerTableCell" id="cp0-P6-hMb" customClass="SchedulerTableViewCell" customModule="LevelScheduler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="335" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cp0-P6-hMb" id="Ky5-CN-7Cl">
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cp0-P6-hMb" id="Ky5-CN-7Cl">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnh-gN-8Ja" userLabel="Color View">
-                                                    <rect key="frame" x="5" y="15" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Fpj-1F-f9C"/>
-                                                        <constraint firstAttribute="width" constant="30" id="r5P-Gt-ZrL"/>
-                                                    </constraints>
-                                                </view>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWl-hr-ZSg" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                    <rect key="frame" x="45" y="10" width="280" height="40"/>
+                                                    <rect key="frame" x="10" y="10" width="315" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="ON3-Da-jYH"/>
                                                     </constraints>
@@ -126,17 +118,60 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="스케줄러 타이틀"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="axp-gw-Ywu">
+                                                    <rect key="frame" x="10" y="55" width="315" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="uzA-7g-66x"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cWd-fc-hNN">
+                                                        <size key="itemSize" width="30" height="30"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="CMW-4l-34q" customClass="ColorCollectionViewCell" customModule="LevelScheduler" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVs-HD-Zau" userLabel="Content View">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </view>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstItem="ZVs-HD-Zau" firstAttribute="top" secondItem="CMW-4l-34q" secondAttribute="top" id="2OE-Cd-HVX"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ZVs-HD-Zau" secondAttribute="bottom" id="4mW-6C-xTG"/>
+                                                                <constraint firstItem="ZVs-HD-Zau" firstAttribute="leading" secondItem="CMW-4l-34q" secondAttribute="leading" id="c04-bw-oPS"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ZVs-HD-Zau" secondAttribute="trailing" id="mlV-4V-9w8"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="colorView" destination="ZVs-HD-Zau" id="jtB-YU-JR1"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="tni-Fk-3Ir"/>
+                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="bb5-SS-Bbb"/>
+                                                    </connections>
+                                                </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mWl-hr-ZSg" firstAttribute="centerY" secondItem="Dnh-gN-8Ja" secondAttribute="centerY" id="Zfp-ig-zSy"/>
+                                                <constraint firstItem="axp-gw-Ywu" firstAttribute="top" secondItem="mWl-hr-ZSg" secondAttribute="bottom" constant="5" id="IGn-M9-B94"/>
+                                                <constraint firstAttribute="trailing" secondItem="axp-gw-Ywu" secondAttribute="trailing" constant="10" id="Wra-ts-imh"/>
                                                 <constraint firstItem="mWl-hr-ZSg" firstAttribute="top" secondItem="Ky5-CN-7Cl" secondAttribute="top" constant="10" id="aO5-pf-VF9"/>
-                                                <constraint firstItem="mWl-hr-ZSg" firstAttribute="leading" secondItem="Dnh-gN-8Ja" secondAttribute="trailing" constant="10" id="fFN-14-5Ts"/>
+                                                <constraint firstAttribute="bottom" secondItem="axp-gw-Ywu" secondAttribute="bottom" id="f6a-By-9dE"/>
                                                 <constraint firstItem="mWl-hr-ZSg" firstAttribute="trailing" secondItem="Ky5-CN-7Cl" secondAttribute="trailing" constant="-10" id="fUV-Uz-sdF"/>
-                                                <constraint firstItem="Dnh-gN-8Ja" firstAttribute="leading" secondItem="Ky5-CN-7Cl" secondAttribute="leading" constant="5" id="wtz-yu-mef"/>
+                                                <constraint firstItem="mWl-hr-ZSg" firstAttribute="leading" secondItem="Ky5-CN-7Cl" secondAttribute="leading" constant="10" id="nsA-Ss-1WW"/>
+                                                <constraint firstItem="axp-gw-Ywu" firstAttribute="leading" secondItem="Ky5-CN-7Cl" secondAttribute="leading" constant="10" id="v8O-VS-PIo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="colorView" destination="Dnh-gN-8Ja" id="SE1-U1-VCR"/>
                                             <outlet property="titleTextField" destination="mWl-hr-ZSg" id="LfT-YN-eSk"/>
                                         </connections>
                                     </tableViewCell>

@@ -17,9 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let initialViewController = R.storyboard.start.startSettingViewController()
+        if User.shared.isSchedulerInitFnished {
+            self.window?.rootViewController = R.storyboard.home.homeViewController()
+        }
+        else {
+            self.window?.rootViewController = R.storyboard.start.startSettingViewController()
+        }
         
-        self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
         return true

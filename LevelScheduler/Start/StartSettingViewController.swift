@@ -14,12 +14,24 @@ public let COLOR_ARRAY: [String] = ["ff4d3d", "8a58ff", "00dec7", "9e9ea9", "321
 
 class StartSettingViewController: UIViewController {
     
-    // Outlet variables
+    private lazy var __once: () = {
+        schedulerNumber = DEFAULT_SCHEDULER_NUMBER
+        dismissTapGestureRecognizer.isEnabled = false
+        
+        let center = NotificationCenter.default
+        let notiArr: [Notification.Name : Selector] = [
+            UIResponder.keyboardDidShowNotification:#selector(didKeyboardWillShow(_:)),
+            UIResponder.keyboardDidHideNotification:#selector(didKeyboardWillHide(_:)),
+            ]
+        notiArr.forEach { (noti, selector) in
+            center.addObserver(self, selector: selector, name: noti, object: nil)
+        }
+    }()
+    
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var settingTableView: UITableView!
     @IBOutlet private var dismissTapGestureRecognizer: UITapGestureRecognizer!
     
-    // private variables
     private var schedulerNumber: Int = DEFAULT_SCHEDULER_NUMBER {
         didSet {
             UIView.animate(withDuration: 0.2) { [weak self] in
@@ -34,24 +46,11 @@ class StartSettingViewController: UIViewController {
             settingTableView.reloadData()
         }
     }
-    private lazy var __once: () = {
-        schedulerNumber = DEFAULT_SCHEDULER_NUMBER
-        dismissTapGestureRecognizer.isEnabled = false
-        
-        let center = NotificationCenter.default
-        let notiArr: [Notification.Name : Selector] = [
-            UIResponder.keyboardDidShowNotification:#selector(didKeyboardWillShow(_:)),
-            UIResponder.keyboardDidHideNotification:#selector(didKeyboardWillHide(_:)),
-        ]
-        notiArr.forEach { (noti, selector) in
-            center.addObserver(self, selector: selector, name: noti, object: nil)
-        }
-    }()
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // public variables
     var selectedColorIndexArray: [Int] = [0]
     var schedulerCellArray: [SchedulerTableViewCell] = []
 
@@ -103,6 +102,11 @@ extension StartSettingViewController {
             object.cardList = nil
             RealmManager.shared.write(object)
         }
+        
+        User.shared.isSchedulerInitFnished = true
+        
+        guard let homeVC = R.storyboard.home.homeViewController() else { return }
+        present(homeVC, animated: true, completion: nil)
     }
     
     @IBAction func didDismissTapped(_ sender: UITapGestureRecognizer) {
@@ -146,9 +150,28 @@ extension StartSettingViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.colorCollectionViewCell, for: indexPath) as! ColorCollectionViewCell
-        cell.drawCell(cellIndex: indexPath.row, selectedIndex: selectedColorIndexArray[indexPath.row], vc: self)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.colorCollectionViewCell, for: indexPath) else {
+            return UICollectionViewCell()
+        }
+        cell.drawCell(cellIndex: indexPath.row, selectedIndex: selectedColorIndexArray[getCurrentSchedulerIndex(collectionView)], vc: self)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedColorIndexArray[getCurrentSchedulerIndex(collectionView)] = indexPath.row
+        collectionView.reloadData()
+    }
+    
+    private func getCurrentSchedulerIndex(_ collectionView: UICollectionView) -> Int {
+        var index = 0
+        schedulerCellArray.forEach { tableCell in
+            for i in 0..<schedulerCellArray.count {
+                if tableCell == collectionView.superview?.superview {
+                    index = i
+                }
+            }
+        }
+        return index
     }
 }
 

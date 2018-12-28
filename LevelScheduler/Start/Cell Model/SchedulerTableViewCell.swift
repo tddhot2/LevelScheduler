@@ -11,7 +11,6 @@ import SkyFloatingLabelTextField
 
 class SchedulerTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleTextField: SkyFloatingLabelTextField!
-    @IBOutlet private weak var colorView: UIView!
     
     private var circleViews: [UIView] {
         var circleViews: [UIView] = []

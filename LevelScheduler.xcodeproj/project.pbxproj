@@ -11,6 +11,9 @@
 		CE1F298621C7784500B8EC28 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F298521C7784500B8EC28 /* R.generated.swift */; };
 		CE1F298921C7856C00B8EC28 /* SchedulerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F298821C7856C00B8EC28 /* SchedulerTableViewCell.swift */; };
 		CE1F298B21C785D500B8EC28 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F298A21C785D500B8EC28 /* ColorCollectionViewCell.swift */; };
+		CEB2ADE821D64958009AABC0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB2ADE721D64958009AABC0 /* Home.storyboard */; };
+		CEB2ADEB21D64A5E009AABC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2ADEA21D64A5E009AABC0 /* User.swift */; };
+		CEB2ADED21D64BFB009AABC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2ADEC21D64BFB009AABC0 /* HomeViewController.swift */; };
 		CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */; };
 		CED7BF7621C0BD2100C3CA6B /* SchedulerTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */; };
 		CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */; };
@@ -29,6 +32,9 @@
 		CE1F298521C7784500B8EC28 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		CE1F298821C7856C00B8EC28 /* SchedulerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTableViewCell.swift; sourceTree = "<group>"; };
 		CE1F298A21C785D500B8EC28 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEB2ADE721D64958009AABC0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		CEB2ADEA21D64A5E009AABC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEB2ADEC21D64BFB009AABC0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CED7BF7221C0BB2C00C3CA6B /* RelamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelamManager.swift; sourceTree = "<group>"; };
 		CED7BF7521C0BD2100C3CA6B /* SchedulerTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTableModel.swift; sourceTree = "<group>"; };
 		CED7BF7721C0BDE500C3CA6B /* EachSchedulerCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachSchedulerCardModel.swift; sourceTree = "<group>"; };
@@ -69,6 +75,23 @@
 				CE1F298A21C785D500B8EC28 /* ColorCollectionViewCell.swift */,
 			);
 			path = "Cell Model";
+			sourceTree = "<group>";
+		};
+		CEB2ADE621D6492B009AABC0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2ADE721D64958009AABC0 /* Home.storyboard */,
+				CEB2ADEC21D64BFB009AABC0 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CEB2ADE921D64A50009AABC0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2ADEA21D64A5E009AABC0 /* User.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		CEB7D67F21BFED2600FFA245 /* Start */ = {
@@ -128,9 +151,11 @@
 		CEFB711F21BFE1EB00D0030D /* LevelScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2ADE921D64A50009AABC0 /* Configuration */,
 				CED7BF7921C1022700C3CA6B /* Extension */,
 				CED7BF7121C0BB1800C3CA6B /* Realm */,
 				CEB7D67F21BFED2600FFA245 /* Start */,
+				CEB2ADE621D6492B009AABC0 /* Home */,
 				CEFB712021BFE1EB00D0030D /* AppDelegate.swift */,
 				CE1F298521C7784500B8EC28 /* R.generated.swift */,
 				CEFB712721BFE1EB00D0030D /* Assets.xcassets */,
@@ -213,6 +238,7 @@
 				CEFB712B21BFE1EB00D0030D /* LaunchScreen.storyboard in Resources */,
 				CEFB712821BFE1EB00D0030D /* Assets.xcassets in Resources */,
 				CEFB712621BFE1EB00D0030D /* Start.storyboard in Resources */,
+				CEB2ADE821D64958009AABC0 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +328,9 @@
 				CED7BF7321C0BB2C00C3CA6B /* RelamManager.swift in Sources */,
 				CED7BF7821C0BDE500C3CA6B /* EachSchedulerCardModel.swift in Sources */,
 				CE1F298B21C785D500B8EC28 /* ColorCollectionViewCell.swift in Sources */,
+				CEB2ADED21D64BFB009AABC0 /* HomeViewController.swift in Sources */,
 				CEFB712121BFE1EB00D0030D /* AppDelegate.swift in Sources */,
+				CEB2ADEB21D64A5E009AABC0 /* User.swift in Sources */,
 				CED7BF7621C0BD2100C3CA6B /* SchedulerTableModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

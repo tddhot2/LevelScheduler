@@ -106,12 +106,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `Home`.
+    static let home = _R.storyboard.home()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Start`.
     static let start = _R.storyboard.start()
+    
+    /// `UIStoryboard(name: "Home", bundle: ...)`
+    static func home(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.home)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -156,6 +163,25 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try start.validate()
+      try home.validate()
+    }
+    
+    struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = HomeViewController
+      
+      let bundle = R.hostingBundle
+      let homeViewController = StoryboardViewControllerResource<HomeViewController>(identifier: "HomeViewController")
+      let name = "Home"
+      
+      func homeViewController(_: Void = ()) -> HomeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.home().homeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'homeViewController' could not be loaded from storyboard 'Home' as 'HomeViewController'.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
